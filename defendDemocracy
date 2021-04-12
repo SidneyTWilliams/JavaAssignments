@@ -1,0 +1,63 @@
+week1assignment
+/*
+ * File: DefendDemocracy.java
+ * -----------------------------
+ *Karel cleans up voting ballot.
+ *Only count vote in middle of rectangle.
+ *No beepers should be present on top or bottom if middle is empty.
+ */
+ 
+package week1;
+import stanford.karel.*;
+
+public class KarelDefendsDemocracy extends SuperKarel {
+
+	public void run() {
+		   while (frontIsClear()) {
+		       move();
+		       checkMiddleBeeper();
+		       cleanBeeper();
+		       move();
+		   }
+	}
+	private void checkMiddleBeeper() {
+		if (beepersPresent()) {
+			move();
+			move();
+		}
+	}
+	private void cleanBeeper() {
+		if (noBeepersPresent()) {
+			cleanBeepersSouth();
+			cleanBeepersNorth();
+		}
+	}
+	private void cleanBeepersNorth() {
+		move();
+			if(frontIsClear()) {
+				move();
+			}
+			while (beepersPresent()) {
+				pickBeeper();
+			}
+			turnAround();
+			move();
+			turnLeft();
+	}
+
+private void cleanBeepersSouth() {
+	turnRight();
+	move();
+		while (beepersPresent()) {
+			pickBeeper();
+		}
+		turnAround();
+		move();
+}
+		
+{
+	}
+		     
+			 
+		 }
+    
