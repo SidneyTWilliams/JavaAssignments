@@ -1,0 +1,22 @@
+package week3;
+
+import acm.program.ConsoleProgram;
+
+public class AddCommasToNumberStrings extends ConsoleProgram {
+	
+	private String addCommasToNumbericString(String digits) {
+		return digits;
+		
+	}
+	
+	public void run() {
+		while(true) {
+			String digits = readLine("Enter a numeric string: ");
+			if (digits.length() == 0) break;
+			println(addCommasToNumbericString(digits));
+			
+	
+		}
+	}
+	
+}
