@@ -1,0 +1,43 @@
+package week2;
+/*This will be a code that will display 10 random circles.
+ * Each circle will be a random color and size.
+ * That will fir on to the screen. 
+ * I will be using 5 and 50 pixels for the radius, to be shown on the screen.
+ */
+import acm.program.*;
+import acm.graphics.*;
+import acm.util.*;
+
+
+/*
+ * Must use Graphicsprogram to display circles
+ */
+public class RandomCircles extends GraphicsProgram {
+	
+	private static final int NxCircles = 10;
+	private static final double Min_Radius = 5;
+	private static final double Max_Radius = 50;
+	/*Classified my minimum radius and maximum radius for my  random circles
+	 * using Min_Radius and setting it at 5. Then setting the maximum radius at 50.
+	 * NxCircles will be my constant.
+	 * rgen will be a private instance.
+	 */
+	
+	private RandomGenerator rgen = RandomGenerator.getInstance();
+	
+	public void run() {
+		for (int i = 0; i < NxCircles; i++) {
+			double r = rgen.nextDouble(Min_Radius, Max_Radius);
+			double x = rgen.nextDouble(0, getWidth() - 2 * r);
+			double y = rgen.nextDouble(0, getHeight() - 2 * r);
+			GOval circle = new GOval(x, y, 2 * r, 2 * r);
+			circle.setFilled(true);
+			circle.setColor(rgen.nextColor());
+			add(circle);
+		}
+		
+		
+	}
+	
+
+}
