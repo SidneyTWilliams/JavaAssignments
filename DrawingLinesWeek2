@@ -1,0 +1,38 @@
+package week2;
+/*This program lets user draw line on canvas.
+ * Dragging mouse will allow user to draw line upward and downward.
+ * while also being able to draw new line after starting a new drag.
+ */
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.event.*;
+
+public class DrawLines extends GraphicsProgram {
+	public void run() {
+		clickMouse();
+		addMouseListeners();
+	}
+/* Glabel will display to "click the mouse to draw a line"
+ * I use 50, 50 as my pixels for where to display on screen 
+ */
+	private void clickMouse() {
+		GLabel instructions = new GLabel("Click the mouse to draw a line", 50, 50);
+		add (instructions);
+	}
+	
+	private GLine line;
+	public void mouseDragged(MouseEvent z) {
+		double x = z.getX();
+		double y = z.getY();
+		line.setEndPoint(x, y);
+	}
+
+public void mousePressed(MouseEvent z) {
+		double x = z.getX();
+		double y = z.getY();
+		line = new GLine (x, y, x, y);
+		add(line);
+	}
+
+	
+}
